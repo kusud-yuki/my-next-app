@@ -18,6 +18,11 @@ function TodoApp() {
     setTasks(updatedTasks);
   };
 
+  const deleteTask = (index) => {
+    const updatedTasks = tasks.filter((_, i) => i !== index);
+    setTasks(updatedTasks);
+  };
+
   return (
     <div>
       <h1>ToDoリスト</h1>
@@ -43,6 +48,20 @@ function TodoApp() {
           </li>
         ))}
       </ul>
+      <ul>
+      {tasks.map((task, index) => (
+        <li
+          key={index}
+          style={{
+            textDecoration: task.completed ? 'line-through' : 'none',
+          }}
+          onClick={() => toggleTask(index)}
+        >
+          {task.text}
+          <button onClick={() => deleteTask(index)}>削除</button>
+        </li>
+      ))}
+    </ul>
     </div>
   );
 }
