@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import ListApp from './ListApp';
+import UserApp from './UserApp';
 
 function App() {
   const [tasks, setTasks] = useState([]);
@@ -53,7 +54,11 @@ function App() {
       </ul>
       <h2>Reactアプリケーション</h2>
       <ListApp />
+      <UserApp />
     </div>
+
+   
+  
   );
 }
 
