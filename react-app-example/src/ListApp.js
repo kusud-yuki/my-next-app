@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
 
 function ListApp() {
-  const [items, setItems] = useState([]);
-  const [newItem, setNewItem] = useState('');
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState('');
 
-  const addItem = () => {
-    if (newItem.trim() !== '') {
-      setItems([...items, newItem]);
-      setNewItem('');
+  const addTask = () => {
+    if (newTask.trim() !== '') {
+      setTasks([...tasks, { text: newTask, completed: false }]);
+      setNewTask('');
     }
+  };
+
+  const toggleTask = (index) => {
+    const updatedTasks = [...tasks];
+    updatedTasks[index].completed = !updatedTasks[index].completed;
+    setTasks(updatedTasks);
   };
 
   return (
@@ -17,15 +23,24 @@ function ListApp() {
       <div>
         <input
           type="text"
-          value={newItem}
-          onChange={(e) => setNewItem(e.target.value)}
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
           placeholder="新しい項目を入力してください"
         />
-        <button onClick={addItem}>追加</button>
+        <button onClick={addTask}>追加</button>
       </div>
       <ul>
-        {items.map((item, index) => (
-          <li key={index}>{item}</li>
+        {tasks.map((task, index) => (
+          <li
+            key={index}
+            style={{
+              textDecoration: task.completed ? 'line-through' : 'none',
+              cursor: 'pointer',
+            }}
+            onClick={() => toggleTask(index)}
+          >
+            {task.text}
+          </li>
         ))}
       </ul>
     </div>
