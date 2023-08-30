@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import styles from '@/styles/App.module.css'; 
 import ListApp from './ListApp';
 import UserApp from './UserApp';
 
@@ -29,26 +29,27 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>カウンターアプリ</h1>
+    <div className={styles.App}>
+      <h1 className={styles.heading}>カウンターアプリ</h1>
       <p>Count: {count}</p>
-      <button onClick={increment}>増加</button>
-      <button onClick={decrement}>減少</button>
+      <button className={styles.btn} onClick={increment}>増加</button>
+      <button className={styles.btn} onClick={decrement}>減少</button>
       <h2>ToDoリスト</h2>
       <div>
         <input
+          className={styles.inputField}
           type="text"
           value={newTask}
           onChange={(e) => setNewTask(e.target.value)}
           placeholder="新しいタスクを入力してください"
         />
-        <button onClick={addTask}>追加</button>
+        <button className={styles.btn} onClick={addTask}>追加</button>
       </div>
-      <ul>
-        {tasks.map((task, index) => (
-          <li key={index}>
-            {task}
-            <button onClick={() => deleteTask(index)}>削除</button>
+      <ul className={styles.list}>
+          {tasks.map((task, index) => (
+          <li className={styles.li} key={index}>
+            {task}1
+            <button className={styles.btn} onClick={() => deleteTask(index)}>削除</button>
           </li>
         ))}
       </ul>
@@ -56,11 +57,7 @@ function App() {
       <ListApp />
       <UserApp />
     </div>
-
-   
-  
   );
 }
 
 export default App;
-

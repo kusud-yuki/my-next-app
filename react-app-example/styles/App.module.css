@@ -3,18 +3,18 @@
   font-family: Arial, sans-serif;
 }
 
-h1 {
+.heading {
   color: #333;
 }
 
-input {
+.inputField {
   padding: 8px;
   margin-right: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
 }
 
-button {
+.btn {
   padding: 8px 16px;
   background-color: #007bff;
   color: white;
@@ -23,13 +23,13 @@ button {
   cursor: pointer;
 }
 
-ul {
+.list {
   list-style: none;
   padding: 0;
   margin-top: 16px;
 }
 
-li {
+.li {
   border: 1px solid #ccc;
   border-radius: 4px;
   padding: 8px;
