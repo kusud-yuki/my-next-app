@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function UserApp() {
+function UsersPage() {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -11,7 +11,7 @@ function UserApp() {
 
   return (
     <div>
-      <h2>ユーザーアプリ</h2>
+      <h1>ユーザーページ</h1>
       <ul>
         {users.map((user, index) => (
           <li key={index}>
@@ -26,4 +26,5 @@ function UserApp() {
   );
 }
 
-export default UserApp;
+export default UsersPage;
+
